@@ -1,0 +1,22 @@
+{
+ "Version": "2012-10-17",
+  "Id": "arn:aws:sqs:ARN", // Replace ARN with ARN of SQS queue
+ "Statement": [
+  {
+   "Sid": "example-statement-ID",
+   "Effect": "Allow",
+   "Principal": {
+    "AWS":"*"  
+   },
+   "Action": [
+    "SQS:SendMessage"
+   ],
+   "Resource": "ARN", // REPLACE ARN with ARN of SQS Queue
+   "Condition": {
+      "ArnLike": {          
+      "aws:SourceArn": "arn:aws:s3:*:*:bucket-name" // Replace bucket-name with actual bucket name - Add additional buckets below
+    }
+   }
+  }
+ ]
+}
